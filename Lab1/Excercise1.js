@@ -12,14 +12,25 @@ hello();
 
 
 //example of anonymous arrow function
+//E1(a)
 let sayBi = ()=> {
-    console.log("bye");
+    console.log("Data Representation and Querying");
 }
 sayBi();
 
-
+//E1(b)
 let test = (myValue) => {
     console.log(myValue);
 }
-
 test("Bonjour");
+
+//E1(c)
+let calc = (num1, num2) => {
+    console.log(num1 + num2);
+}
+calc(3, 4);
+
+//E1(d)
+let mult = (num1,  num2) => {
+    console.log(num1, num2);
+}
