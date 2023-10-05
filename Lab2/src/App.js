@@ -9,7 +9,7 @@ function App() {
         <h1>
           Hello world!
         </h1>
-
+        {/* E2(b) */}
         <h2>
           It is {new Date().toLocaleTimeString()}.
         </h2>
