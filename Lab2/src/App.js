@@ -14,28 +14,40 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes
+} from 'react-router-dom';
 
 function App() {
   return (
-    <>
-     <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Navbar.Brand href="#home">Home</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#Content">Content</Nav.Link>
-            <Nav.Link href="#Header">Header</Nav.Link>
-            <Nav.Link href="#Footer">Footer</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-    <div className="App">
+    <Router>
+      <>
+        <Navbar bg="dark" data-bs-theme="dark">
+          <Container>
+            <Navbar.Brand as={Link} to="/">Home</Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/content">Content</Nav.Link>
+              <Nav.Link as={Link} to="/header">Header</Nav.Link>
+              <Nav.Link as={Link} to="/footer">Footer</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
 
-      {/* //calls on compenents to be displayed */}
-      <Header />
-      <Content />
-      <Footer />
-    </div>
-    </>
+
+              <div className="App">
+        <Routes>
+          <Route path="/content" element={<Content />} />
+          <Route path="/header" element={<Header />} />
+          <Route path="/footer" element={<Footer />} />
+          <Route path="/" element={<h1>Welcome to Home</h1>} />
+        </Routes>
+      </div>
+
+      </>
+    </Router>
   );
 }
 
