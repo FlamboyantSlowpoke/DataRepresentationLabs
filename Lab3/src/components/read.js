@@ -32,7 +32,19 @@ const Read = () => {
             "categories": []
         }
     ];
-    
+    //lab3 E2 (d)
+    function BookItems({ book }) {
+
+        const firstAuthor = book.authors[0];
+        return (
+            <div style={{ marginBottom: '20px' }}>
+                <h3>{book.title}</h3>
+                <p>{firstAuthor}</p>
+                <img src={book.thumbnailUrl} alt={book.title} style={{ width: '150px' }} />
+            </div>
+        );
+    };
+
     //lab3 E2 (c)
     function Books({ data }) {
         return (
@@ -42,12 +54,16 @@ const Read = () => {
                 ))}
             </div>
         );
-    }
+    };
 
-    return
-    <div>
-        <h3>Hello from read component</h3>
-    </div>
+
+    //return statement for read component
+    return (
+        <div>
+            <h3>Hello from read component</h3>
+            <Books data={bookData} />
+        </div>
+    );
 }
 
 export default Read;
