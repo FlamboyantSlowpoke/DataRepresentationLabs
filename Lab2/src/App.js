@@ -24,7 +24,7 @@ function App() {
             <Nav className="me-auto">
               <Nav.Link href="/content">Content</Nav.Link>
               <Nav.Link href="/header">Header</Nav.Link>
-              <Nav.Link href="/footer">Footer</Nav.Link>
+              <Nav.Link as={Link} to="/footer">Footer</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
