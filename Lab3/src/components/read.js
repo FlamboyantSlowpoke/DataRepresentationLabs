@@ -1,5 +1,8 @@
 import React from "react"
 
+//working link to card documentation: https://react-bootstrap.netlify.app/docs/components/cards
+import Card from 'react-bootstrap/Card';
+
 
 //Lab3 E2 (b) + E2 (c)
 const Read = () => {
@@ -38,9 +41,13 @@ const Read = () => {
         const firstAuthor = book.authors[0];
         return (
             <div style={{ marginBottom: '20px' }}>
-                <h3>{book.title}</h3>
+                <Card style={{ }}>
+                    <Card.Body>
+                        <Card.Text>{book.title}</Card.Text>
+                    </Card.Body>
+                </Card>
+                <img variant="top" src={book.thumbnailUrl} alt={book.title} />
                 <p>{firstAuthor}</p>
-                <img src={book.thumbnailUrl} alt={book.title} style={{ width: '150px' }} />
             </div>
         );
     };
