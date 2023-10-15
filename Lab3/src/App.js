@@ -4,8 +4,6 @@ import React from 'react';
 // import Header from './components/header';
 import Read from './components/read';
 import Create from './components/create';
-import Content from './components/content';
-
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,9 +19,10 @@ function App() {
       <>
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
-            <Navbar.Brand href="/">Lab3</Navbar.Brand>
+            <Navbar.Brand >NavBar</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/content">Content</Nav.Link>
+              {/* href links to a defined route */}
+              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/read">Read</Nav.Link>
               <Nav.Link href="/create">Create</Nav.Link>
             </Nav>
@@ -33,7 +32,7 @@ function App() {
 
               <div className="App">
         <Routes>
-          <Route path="/content" element={<Content />}></Route> 
+          {/* router path definition  */}
           <Route path="/read" element={<Read />}></Route> 
           <Route path="/create" element={<Create />}></Route>
           <Route path="/" element={<h1>Welcome to Home</h1>} />
