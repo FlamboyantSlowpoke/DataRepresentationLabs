@@ -12,7 +12,7 @@ const Create = () => {
         e.preventDefault();
 
         //display user input to browser console
-        console.log("title " +title+ "Author :" +author+ "Cover: " +cover);
+        console.log("title " +title+ "\nAuthor :" +author+ "\nCover: " +cover);
     }
 
     return (
@@ -20,7 +20,7 @@ const Create = () => {
 
         //creates form that accepts user input 
         <div>
-            <form onSubmit ={handleSubmit}/>
+            <form onSubmit={handleSubmit}>
             <div className="form-group">
                 <label> Edit Book Title: </label>
                 <input type="text"
@@ -46,8 +46,9 @@ const Create = () => {
                 />
             </div>
             {/* button for user to commit changes */}
+
             <input type="submit" value="Add Book"/>
-           
+           </form>
         </div>
 
     );
