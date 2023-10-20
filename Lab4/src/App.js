@@ -12,6 +12,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+//Lab4
+import { useEffect } from 'react';
+
+
 //nav link estabishes routing to linked components 
 function App() {
   return (

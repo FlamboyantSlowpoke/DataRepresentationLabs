@@ -10,22 +10,25 @@ import { useState } from "react";
 function Read() {
 
     const [bookData, setBookData] = useState([]);
-    {/*creates the given json file as a variable */}
+    {/*creates the given json file as a variable */ }
     useEffect(
-        ()=>{
+        () => {
+            //axios call to json file
             axios.get('https://jsonblob.com/api/jsonblob/1161593332966481920')
-            .then((response)=>{
-                setBookData(response.data.books);
-            })
-            .catch((error)=>{
-                console.log(error);
-            });
-        },[] //empty array to prevent infinite loop
+                //returns json file if axios call is successful
+                .then((response) => {
+                    setBookData(response.data.books);
+                })
+                //returns error if axios call fails
+                .catch((error) => {
+                    console.log(error);
+                });
+        }, [] //empty array to prevent infinite loop
     );
 
     //lab3 E2 (d)
     function BookItems({ book }) {
-        {/* limits authors displayed to 1 */}
+        {/* limits authors displayed to 1 */ }
         const firstAuthor = book.authors[0];
         return (
             <div style={{ marginBottom: '20px' }}>
@@ -36,7 +39,7 @@ function Read() {
                 </Card>
                 <p> </p>
                 <img variant="top" src={book.thumbnailUrl} alt={book.title} />
-                <p>{firstAuthor}</p> {/*returns first author value */}   
+                <p>{firstAuthor}</p> {/*returns first author value */}
             </div>
         );
     };
@@ -58,7 +61,7 @@ function Read() {
     return (
         <div>
             <h3>Read component</h3>
-            <Books data={bookData} /> {/*returns book data */}  
+            <Books data={bookData} /> {/*returns book data */}
         </div>
     );
 }

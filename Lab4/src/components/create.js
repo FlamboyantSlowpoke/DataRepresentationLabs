@@ -3,6 +3,7 @@ import React, { useState } from "react"
 //Lab3 E2 (b)
 const Create = () => {
 
+    //useState hook to create variables for user input
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [cover, setCover] = useState("");
@@ -12,7 +13,7 @@ const Create = () => {
         e.preventDefault();
 
         //display user input to browser console
-        console.log("title " +title+ "\nAuthor :" +author+ "\nCover: " +cover);
+        console.log("title " + title + "\nAuthor :" + author + "\nCover: " + cover);
     }
 
     return (
@@ -20,35 +21,36 @@ const Create = () => {
 
         //creates form that accepts user input 
         <div>
+            {/* form header */}
             <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label> Edit Book Title: </label>
-                <input type="text"
-                    className="form-control"
-                    value={title}
-                    onChange={(e) => { setTitle(e.target.value) }}
-                />
-            </div>
-            <div className="form-group">
-                <label> Edit Author: </label>
-                <input type="text"
-                    className="form-control"
-                    value={author}
-                    onChange={(e) => { setAuthor(e.target.value) }}
-                />
-            </div>
-            <div className="form-group">
-                <label> Edit Cover: </label>
-                <input type="text"
-                    className="form-control"
-                    value={cover}
-                    onChange={(e) => { setCover(e.target.value) }}
-                />
-            </div>
-            {/* button for user to commit changes */}
+                <div className="form-group">
+                    <label> Edit Book Title: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={title}
+                        onChange={(e) => { setTitle(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label> Edit Author: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={author}
+                        onChange={(e) => { setAuthor(e.target.value) }}
+                    />
+                </div>
+                <div className="form-group">
+                    <label> Edit Cover: </label>
+                    <input type="text"
+                        className="form-control"
+                        value={cover}
+                        onChange={(e) => { setCover(e.target.value) }}
+                    />
+                </div>
+                {/* button for user to commit changes */}
 
-            <input type="submit" value="Add Book"/>
-           </form>
+                <input type="submit" value="Add Book" />
+            </form>
         </div>
 
     );
