@@ -1,41 +1,28 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 //working link to card documentation: https://react-bootstrap.netlify.app/docs/components/cards
 import Card from 'react-bootstrap/Card';
+import axios from 'axios';
+import { useState } from "react";
 
 
 //Lab3 E2 (b) + E2 (c)
-const Read = () => {
+function Read() {
+
+    const [bookData, setBookData] = useState([]);
     {/*creates the given json file as a variable */}
-    const bookData = [
-        {
-            "title": "Learn Git in a Month of Lunches",
-            "isbn": "1617292419",
-            "pageCount": 0,
-            "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/umali.jpg",
-            "status": "MEAP",
-            "authors": ["Rick Umali"],
-            "categories": []
-        },
-        {
-            "title": "MongoDB in Action, Second Edition",
-            "isbn": "1617291609",
-            "pageCount": 0,
-            "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/banker2.jpg",
-            "status": "MEAP",
-            "authors": ["Kyle Banker", "Peter Bakkum", "Tim Hawkins", "Shaun Verch", "Douglas Garrett"],
-            "categories": []
-        },
-        {
-            "title": "Getting MEAN with Mongo, Express, Angular, and Node",
-            "isbn": "1617292036",
-            "pageCount": 0,
-            "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/sholmes.jpg",
-            "status": "MEAP",
-            "authors": ["Simon Holmes"],
-            "categories": []
-        }
-    ];
+    useEffect(
+        ()=>{
+            axios.get('https://jsonblob.com/api/jsonblob/1161593332966481920')
+            .then((response)=>{
+                setBookData(response.data.books);
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
+        },[] //empty array to prevent infinite loop
+    );
+
     //lab3 E2 (d)
     function BookItems({ book }) {
         {/* limits authors displayed to 1 */}
