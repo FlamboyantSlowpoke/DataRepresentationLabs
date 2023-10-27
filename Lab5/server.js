@@ -3,8 +3,8 @@ const app = express()
 const port = 4000
 
 //requires npm install body-parser
-
 const bodyParser = require('body-parser');  
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -82,7 +82,7 @@ app.get('/name', (req, res) => {
 
 //post is more secure for sending informationn
 app.post('/name', (req, res) => {
-    res.send('Got a POST request' +req.body.fname + " " + req.body.lname);
+    res.send('Got a POST request ' +req.body.fname + " " + req.body.lname);
 })
 
 
