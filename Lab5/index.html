@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="utf-8">
+    <title>Lab 5</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        p1 {
+            color: red;
+        }
+        body {
+            background-color: rgb(128, 204, 14);
+        }
+    </style>
+</head>
+<body>
+    <p1>Hello from html!</p1>
+
+    <form action="/name" method="GET">
+        <label>firstname:</label>
+        <input type="text" name="fName" value="Ben"><br>
+        <label>lastname:</label>
+        <input type="text" name="lName" value="Stacey"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p1>post method</p1>
+    <form action="/name" method="POST">
+        <label>firstname:</label>
+        <input type="text" name="fName" value="Ben"><br>
+        <label>lastname:</label>
+        <input type="text" name="lName" value="Stacey"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

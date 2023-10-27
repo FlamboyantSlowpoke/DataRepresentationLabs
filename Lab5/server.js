@@ -2,6 +2,12 @@ const express = require('express')
 const app = express()
 const port = 4000
 
+//requires npm install body-parser
+
+const bodyParser = require('body-parser');  
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
@@ -49,11 +55,35 @@ app.get('/api/books', (req, res) => {
         }
     ];
 
-    res.json({ myBooks: data });
-    message: "hello!";
+    res.status(200).json({
+        myBooks: data,
+        message: "hello!",
+        
+    });
+    
 
 })
 
+//returns file index.html
+app.get('/test', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+})
+
+//lists value of port in console
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
+
+// returns the values given from index.html
+app.get('/name', (req, res) => {
+    console.log( "hello " +req.query.fname + " " + req.query.lname);
+})
+
+//post is more secure for sending informationn
+app.post('/name', (req, res) => {
+    res.send('Got a POST request' +req.body.fname + " " + req.body.lname);
+})
+
+
+
