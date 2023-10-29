@@ -5,7 +5,7 @@ const port = 4000
 
 //requires npm install body-parser
 //allows the use of req.body
-const bodyParser = require('body-parser');  
+const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -61,9 +61,9 @@ app.get('/api/books', (req, res) => {
     res.status(200).json({
         myBooks: data,
         message: "hello!",
-        
+
     });
-    
+
 
 })
 
@@ -80,12 +80,12 @@ app.listen(port, () => {
 
 // returns the values given from index.html in the console
 app.get('/name', (req, res) => {
-    console.log( "hello " +req.query.fName + " " + req.query.lName);
+    console.log("hello " + req.query.fName + " " + req.query.lName);
 })
 
 //post is more secure for sending information to the server
 app.post('/name', (req, res) => {
-    res.send('Got a POST request ' +req.body.fName + " " + req.body.lName);
+    res.send('Got a POST request ' + req.body.fName + " " + req.body.lName);
 })
 
 
