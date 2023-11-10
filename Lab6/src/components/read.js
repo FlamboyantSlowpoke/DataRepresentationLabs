@@ -13,11 +13,11 @@ function Read() {
     {/*creates the given json file as a variable */ }
     useEffect(
         () => {
-            //axios call to json file
-            axios.get('https://jsonblob.com/api/jsonblob/1161593332966481920')
+            //axios call to json file from express server 
+            axios.get('http://localhost:4000/api/books')
                 //returns json file if axios call is successful
                 .then((response) => {
-                    setBookData(response.data.books);
+                    setBookData(response.data.myBooks);
                 })
                 //returns error if axios call fails
                 .catch((error) => {
