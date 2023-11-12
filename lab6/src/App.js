@@ -7,9 +7,9 @@ import Create from './components/create';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/esm/Container';
+import Nav from 'react-bootstrap/esm/Nav';
+import Navbar from 'react-bootstrap/esm/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //Lab4
@@ -34,14 +34,14 @@ function App() {
         </Navbar>
 
 
-              <div className="App">
-        <Routes>
-          {/* router path definition  */}
-          <Route path="/read" element={<Read />}></Route> 
-          <Route path="/create" element={<Create />}></Route>
-          <Route path="/" element={<h1>Welcome to Home</h1>} />
-        </Routes>
-      </div>
+        <div className="App">
+          <Routes>
+            {/* router path definition  */}
+            <Route path="/read" element={<Read />}></Route>
+            <Route path="/create" element={<Create />}></Route>
+            <Route path="/" element={<h1>Welcome to Home</h1>} />
+          </Routes>
+        </div>
 
       </>
     </BrowserRouter>

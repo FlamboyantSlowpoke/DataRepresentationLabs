@@ -61,6 +61,7 @@ app.get('/api/books', (req, res) => {
         }
     ];
 
+    //returns json data
     res.status(200).json({
         myBooks: data,
         message: "hello!",
@@ -91,6 +92,7 @@ app.post('/name', (req, res) => {
     res.send('Got a POST request ' + req.body.fName + " " + req.body.lName);
 })
 
+//function to handle post request from create.js
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "GET, POST, PUT, DELETE, OPTIONS");

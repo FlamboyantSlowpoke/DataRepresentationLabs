@@ -2,7 +2,7 @@
 import React, { useEffect } from "react"
 
 //working link to card documentation: https://react-bootstrap.netlify.app/docs/components/cards
-import Card from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/esm/Card';
 import axios from 'axios';
 import { useState } from "react";
 
