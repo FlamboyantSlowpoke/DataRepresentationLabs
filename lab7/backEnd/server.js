@@ -19,8 +19,19 @@ main().catch(err => console.log(err));
 //connects to the database
 //main connection string: mongodb+srv://benjaminstacey15:<password>@cluster0.lqmsp7v.mongodb.net/?retryWrites=true&w=majority
 async function main() {
-    await mongoose.connect('mongodb+srv://benjaminstacey15:<password>@cluster0.lqmsp7v.mongodb.net/?retryWrites=true&w=majority');
+    await mongoose.connect('mongodb+srv://benjaminstacey15:65Sgy3NhUVdllxMy@cluster0.lqmsp7v.mongodb.net/?retryWrites=true&w=majority');
 }
+
+//creates a schema for the database
+const bookSchema = new mongoose.Schema({
+    title: String,
+    cover: String,
+    author: String
+});
+
+const bookModel = mongoose.model('book', bookSchema);
+
+
 
 //defualt page displaying hello world
 app.get('/', (req, res) => {
@@ -101,6 +112,14 @@ app.post('/name', (req, res) => {
     res.send('Got a POST request ' + req.body.fName + " " + req.body.lName);
 })
 
+app.post('/api/books', (req, res) => {
+    console.log(req.body);
+    bookModel.create({
+        title: req.body.title,
+        cover: req.body.cover,
+        author: req.body.author
+}).then(() => {res.send("Data recieved and stored on MongoDB")}) .catch((err) => {res.send(err)})
+});
 //function to handle post request from create.js
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
