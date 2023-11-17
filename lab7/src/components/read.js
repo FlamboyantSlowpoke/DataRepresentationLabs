@@ -18,7 +18,7 @@ function Read() {
             axios.get('http://localhost:4000/api/books')
                 //returns json file if axios call is successful
                 .then((response) => {
-                    setBookData(response.data.myBooks);
+                    setBookData(response.data);
                 })
                 //returns error if axios call fails
                 .catch((error) => {
@@ -30,7 +30,7 @@ function Read() {
     //lab3 E2 (d)
     function BookItems({ book }) {
         {/* limits authors displayed to 1 */ }
-        const firstAuthor = book.authors[0];
+        const firstAuthor = book.author;
         return (
             <div style={{ marginBottom: '20px' }}>
                 <Card>
@@ -39,8 +39,8 @@ function Read() {
                     </Card.Body>
                 </Card>
                 <p> </p>
-                <img variant="top" src={book.thumbnailUrl} alt={book.title} />
-                <p>{firstAuthor}</p> {/*returns first author value */}
+                <img variant="top" src={book.cover} alt={book.title} />
+                <p>{author}</p> 
             </div>
         );
     };
@@ -51,7 +51,7 @@ function Read() {
             <div>
                 {/* creates  */}
                 {data.map(book => (
-                    <BookItems key={book.isbn} book={book} />
+                    <BookItems key={book._id} book={book} />
                 ))}
             </div>
         );
