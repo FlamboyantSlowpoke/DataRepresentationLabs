@@ -8,10 +8,19 @@ const cors = require('cors');
 //requires npm install body-parser
 //allows the use of req.body
 const bodyParser = require('body-parser');
+
+const mongoose = require('mongoose');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
+main().catch(err => console.log(err));
+
+//connects to the database
+//main connection string: mongodb+srv://benjaminstacey15:<password>@cluster0.lqmsp7v.mongodb.net/?retryWrites=true&w=majority
+async function main() {
+    await mongoose.connect('mongodb+srv://benjaminstacey15:<password>@cluster0.lqmsp7v.mongodb.net/?retryWrites=true&w=majority');
+}
 
 //defualt page displaying hello world
 app.get('/', (req, res) => {
