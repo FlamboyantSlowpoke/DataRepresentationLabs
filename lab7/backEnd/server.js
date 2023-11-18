@@ -29,7 +29,7 @@ const bookSchema = new mongoose.Schema({
     author: String
 });
 
-const bookModel = mongoose.model('book', bookSchema);
+const bookModel = mongoose.model('book', bookSchema);//creates a model for the database
 
 
 
@@ -43,15 +43,16 @@ app.get('/hello/:name', (req, res) => {
     res.send('Hello World!');
 })
 //returns json data
-app.get('/api/books', async(req, res) => {
-   
-        let books = await bookModel.find({});
-        res.json(books);
-    })
+app.get('/api/books', async (req, res) => {
 
-app.get('/api/books/:id', async(req, res) => {
+    let books = await bookModel.find({});
+    res.json(books);
+})
+
+//returns json data for a specific book
+app.get('/api/books/:id', async (req, res) => {
     console.log(req.params.id);
-    let book = await bookModel.findById({_id:req.params.id});
+    let book = await bookModel.findById({ _id: req.params.id });
     res.send(book);
 })
 
@@ -76,26 +77,27 @@ app.post('/name', (req, res) => {
     res.send('Got a POST request ' + req.body.fName + " " + req.body.lName);
 })
 
+//post request to store data on MongoDB
 app.post('/api/books', (req, res) => {
     console.log(req.body);
     bookModel.create({
         title: req.body.title,
         cover: req.body.cover,
         author: req.body.author
-}).then(() => {res.send("Data recieved and stored on MongoDB")}) .catch((err) => {res.send(err)})
+    }).then(() => { res.send("Data recieved and stored on MongoDB") }).catch((err) => { res.send(err) })
 });
 //function to handle post request from create.js
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Allow-Headers", 
-    "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept");
     next();
-    });
+});
 
-    //listens for post request from create.js
-    app.post('/api/books', (req, res) => {
-    
+//listens for post request from create.js
+app.post('/api/books', (req, res) => {
+
     console.log(req.body);
     res.send("Data recieved and stored");
 });

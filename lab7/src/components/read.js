@@ -30,7 +30,7 @@ function Read() {
     //lab3 E2 (d)
     function BookItems({ book }) {
         {/* limits authors displayed to 1 */ }
-        const firstAuthor = book.author;
+        const author = book.author;
         return (
             <div style={{ marginBottom: '20px' }}>
                 <Card>
@@ -39,8 +39,8 @@ function Read() {
                     </Card.Body>
                 </Card>
                 <p> </p>
-                <img variant="top" src={book.cover} alt={book.title} />
-                <p>{author}</p> 
+                <img style={{ maxWidth: '200px', maxHeight: '200px' }} variant="top" src={book.cover} alt={book.title} /> 
+                <p>{author}</p>
             </div>
         );
     };
