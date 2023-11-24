@@ -5,6 +5,7 @@ import React, { useEffect } from "react"
 import Card from 'react-bootstrap/esm/Card';
 import axios from 'axios';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 //Lab3 E2 (b) + E2 (c)
@@ -41,6 +42,7 @@ function Read() {
                 <p> </p>
                 <img style={{ maxWidth: '200px', maxHeight: '200px' }} variant="top" src={book.cover} alt={book.title} /> 
                 <p>{author}</p>
+                <Link to={"/edit/" + book._id} className="btn btn-primary">Edit</Link> {/*creates edit button for each book */}
             </div>
         );
     };

@@ -4,6 +4,7 @@ import React from 'react';
 // import Header from './components/header';
 import Read from './components/read';
 import Create from './components/create';
+import Edit from './components/edit';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -28,7 +29,7 @@ function App() {
               {/* href links to a defined route */}
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/read">Read</Nav.Link>
-              <Nav.Link href="/create">Create</Nav.Link>
+              <Nav.Link href="/create">Create</Nav.Link>  
             </Nav>
           </Container>
         </Navbar>
@@ -39,6 +40,7 @@ function App() {
             {/* router path definition  */}
             <Route path="/read" element={<Read />}></Route>
             <Route path="/create" element={<Create />}></Route>
+            <Route path="/edit/:id" element={<Edit />}></Route>
             <Route path="/" element={<h1>Welcome to Home</h1>} />
           </Routes>
         </div>
