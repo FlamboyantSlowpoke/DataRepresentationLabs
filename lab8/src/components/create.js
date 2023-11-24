@@ -1,6 +1,7 @@
 //create js
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 //Lab3 E2 (b)
 const Create = () => {
 
@@ -8,6 +9,8 @@ const Create = () => {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [cover, setCover] = useState("");
+
+    const naviate = useNavigate(); //useNavigate() is used to navigate to a different page
 
     const handleSubmit = (e) => {
         //prevents page from refreshing
@@ -24,7 +27,10 @@ const Create = () => {
         }
         //axios post request to send user input to server.js
         axios.post('http://localhost:4000/api/books', newBook)
-            .then()//.then() is used to handle a successful response from the server
+            .then((res) => {
+                console.log(res.data);
+                naviate("/read"); //navigates to read page
+            })//.then() is used to handle a successful response from the server
             .catch();//.catch() is used to handle an error response from the server
     }
 

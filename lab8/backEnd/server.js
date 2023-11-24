@@ -59,9 +59,9 @@ app.get('/api/books', async (req, res) => {
 app.get('/api/books/:id', async (req, res) => {
     console.log(req.params.id);
 
-    let book = await bookModel.findById({ _id: req.params.id });
+    let book = await bookModel.findById({ _id: req.params.id }); //finds a book by id
 
-    res.send(book);
+    res.send(book); //returns the book
 })
 
 //returns file index.html 
