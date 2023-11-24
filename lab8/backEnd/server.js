@@ -31,7 +31,13 @@ const bookSchema = new mongoose.Schema({
 
 const bookModel = mongoose.model('book', bookSchema);//creates a model for the database
 
-
+//updates a book in the database from edit.js
+app.put('/api/books/:id', async(req, res) => {
+    let book = await bookModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    
+    res.send(book);
+        
+});
 
 //defualt page displaying hello world
 app.get('/', (req, res) => {
@@ -52,7 +58,9 @@ app.get('/api/books', async (req, res) => {
 //returns json data for a specific book
 app.get('/api/books/:id', async (req, res) => {
     console.log(req.params.id);
+
     let book = await bookModel.findById({ _id: req.params.id });
+
     res.send(book);
 })
 

@@ -20,6 +20,7 @@ const Create = () => {
         const newBook = {
             title: title,
             author: author,
+            cover: cover
         }
         //axios post request to send user input to server.js
         axios.post('http://localhost:4000/api/books', newBook)
