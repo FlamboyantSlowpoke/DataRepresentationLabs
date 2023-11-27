@@ -29,7 +29,7 @@ const Create = () => {
         axios.post('http://localhost:4000/api/books', newBook)
             .then((res) => {
                 console.log(res.data);
-                naviate("/read"); //navigates to read page
+                navigate("/read"); //navigates to read page
             })//.then() is used to handle a successful response from the server
             .catch();//.catch() is used to handle an error response from the server
     }
