@@ -5,7 +5,7 @@ import React from 'react';
 import Read from './components/read';
 import Create from './components/create';
 import Edit from './components/edit';
-
+import Delete from './components/delete';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/esm/Container';
@@ -13,8 +13,7 @@ import Nav from 'react-bootstrap/esm/Nav';
 import Navbar from 'react-bootstrap/esm/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-//Lab4
-import { useEffect } from 'react';
+
 
 
 //nav link estabishes routing to linked components 
@@ -41,6 +40,7 @@ function App() {
             <Route path="/read" element={<Read />}></Route>
             <Route path="/create" element={<Create />}></Route>
             <Route path="/edit/:id" element={<Edit />}></Route>
+            <Route path="/delete/:id" element={<Delete />}></Route>
             <Route path="/" element={<h1>Welcome to Home</h1>} />
           </Routes>
         </div>

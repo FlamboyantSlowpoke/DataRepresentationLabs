@@ -11,8 +11,7 @@ import { Link } from "react-router-dom";
 //Lab3 E2 (b) + E2 (c)
 function Read() {
 
-    const [bookData, setBookData] = useState([]);
-    {/*creates the given json file as a variable */ }
+    const [bookData, setBookData] = useState([]); //set book data to empty array
     useEffect(
         () => {
             //axios call to json file from express server 
@@ -29,8 +28,7 @@ function Read() {
     );
 
     //lab3 E2 (d)
-    function BookItems({ book }) {
-        {/* limits authors displayed to 1 */ }
+    function BookItems({ book }) { //limits displayed authors to 1
         const author = book.author;
         return (
             <div style={{ marginBottom: '20px' }}>
@@ -42,7 +40,8 @@ function Read() {
                 <p> </p>
                 <img style={{ maxWidth: '200px', maxHeight: '200px' }} variant="top" src={book.cover} alt={book.title} /> 
                 <p>{author}</p>
-                <Link to={"/edit/" + book._id} className="btn btn-primary">Edit</Link> {/*creates edit button for each book */}
+                <Link to={"/edit/" + book._id} className="edit-button">Edit</Link> {/*creates edit button for each book */}
+                <Link to={"/delete/" + book._id} className="delete-button">Delete</Link> {/*creates delete button for each book */}
             </div>
         );
     };

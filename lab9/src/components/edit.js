@@ -21,7 +21,7 @@ export default function Edit(book) {
             setCover(response.data.cover);
             setAuthor(response.data.author);
         })
-    }, []);
+    }, [id]);
 
     //handleSubmit() is used to handle the submit event
     const handleSubmit = (event) => {

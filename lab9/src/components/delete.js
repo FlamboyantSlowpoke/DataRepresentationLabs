@@ -4,11 +4,9 @@ import axios from "axios";
 
 
 const Delete = () => {
-    const [title, setTitle] = useState("");
-    const [author, setAuthor] = useState("");
-    const [cover, setCover] = useState("");
+    const [ book, setBook ] = useState({title: '', author: '', cover: ''}); //set book to empty string
 
-    const [ loading, setLoading ] = useState(true);
+    const [ loading, setLoading ] = useState(true); //set loading to true
     let { id } = useParams();
     const navigate = useNavigate();
 
@@ -16,9 +14,8 @@ const Delete = () => {
     useEffect(() => {
         const endpoint = "http://localhost:4000/api/books/" + id;
         axios.get(endpoint).then((response) => {
-            setTitle(response.data.title);
-            setAuthor(response.data.author);
-            setCover(response.data.cover);
+            setBook(response.data); //sets book to response data
+            console.log(response.data); //logs response data
             setLoading(false); //set loading to false
         }).catch((error) => {
             console.log(error);
@@ -27,7 +24,7 @@ const Delete = () => {
     }, []);
 
     //delete data from database
-    const handleDelete = async () => {
+    const handleDelete = async (event) => {
         const endpoint = "http://localhost:4000/api/books/" + id;
         await axios.delete(endpoint).then((response) => { //axios delete request to send user input to server.js
             console.log(response.data); //logs response data
@@ -48,7 +45,8 @@ const Delete = () => {
         <div>
             <button className="delete-button" onClick={handleDelete}>Delete</button>
             <br></br>
-            <button onClick={() => navigate("/read")}>Cancel</button>
+            <br></br>
+            <button className="cancel-button" onClick={() => navigate("/read")}>Cancel</button>
         </div>
     );
 };
