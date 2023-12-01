@@ -4,9 +4,9 @@ import axios from "axios";
 
 
 const Delete = () => {
-    const [ book, setBook ] = useState({title: '', author: '', cover: ''}); //set book to empty string
+    const [book, setBook] = useState({ title: '', author: '', cover: '' }); //set book to empty string
 
-    const [ loading, setLoading ] = useState(true); //set loading to true
+    const [loading, setLoading] = useState(true); //set loading to true
     let { id } = useParams();
     const navigate = useNavigate();
 

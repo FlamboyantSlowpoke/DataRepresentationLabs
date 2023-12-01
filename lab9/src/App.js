@@ -21,14 +21,14 @@ function App() {
   return (
     <BrowserRouter>
       <>
-        <Navbar bg="dark" data-bs-theme="dark">
+        <Navbar className='navbar'>
           <Container>
-            <Navbar.Brand >NavBarLab8</Navbar.Brand>
+            <Navbar.Brand >NavBarLab9</Navbar.Brand>
             <Nav className="me-auto">
               {/* href links to a defined route */}
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/read">Read</Nav.Link>
-              <Nav.Link href="/create">Create</Nav.Link>  
+              <Nav.Link href="/create">Create</Nav.Link>
             </Nav>
           </Container>
         </Navbar>

@@ -32,15 +32,15 @@ const bookSchema = new mongoose.Schema({
 const bookModel = mongoose.model('book', bookSchema);//creates a model for the database
 
 //updates a book in the database from edit.js
-app.put('/api/books/:id', async(req, res) => {
+app.put('/api/books/:id', async (req, res) => {
     let book = await bookModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    
+
     res.send(book);
-        
+
 });
 
 //deletes a book from the database
-app.delete('/api/books/:id', async(req, res) => {
+app.delete('/api/books/:id', async (req, res) => {
     try {
         const deletedReview = await bookModel.findByIdAndDelete(req.params.id); //finds a book by id and deletes it
         if (!deletedReview) res.status(404).send("No item found") //if no book is found returns 404

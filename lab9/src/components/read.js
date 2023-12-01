@@ -38,7 +38,7 @@ function Read() {
                     </Card.Body>
                 </Card>
                 <p> </p>
-                <img style={{ maxWidth: '200px', maxHeight: '200px' }} variant="top" src={book.cover} alt={book.title} /> 
+                <img style={{ maxWidth: '200px', maxHeight: '200px' }} variant="top" src={book.cover} alt={book.title} />
                 <p>{author}</p>
                 <Link to={"/edit/" + book._id} className="edit-button">Edit</Link> {/*creates edit button for each book */}
                 <Link to={"/delete/" + book._id} className="delete-button">Delete</Link> {/*creates delete button for each book */}
