@@ -39,6 +39,19 @@ app.put('/api/books/:id', async(req, res) => {
         
 });
 
+//deletes a book from the database
+app.delete('/api/books/:id', async(req, res) => {
+    try {
+        const deletedReview = await bookModel.findByIdAndDelete(req.params.id); //finds a book by id and deletes it
+        if (!deletedReview) res.status(404).send("No item found") //if no book is found returns 404
+        res.status(200).send()
+    } catch (err) {
+        console.log(err); //logs error  
+        res.status(500).send(err); //returns error
+    }
+});
+
+
 //defualt page displaying hello world
 app.get('/', (req, res) => {
     res.send('Hello World!')
