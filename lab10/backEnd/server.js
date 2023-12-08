@@ -10,6 +10,12 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
+
+//paths to server
+const path = require('path'); //path to server
+app.use(express.static(path.join(__dirname, '../build'))); //path to build folder
+app.use('/static', express.static(path.join(__dirname, 'build//static'))); //path to static folder
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
@@ -52,10 +58,7 @@ app.delete('/api/books/:id', async (req, res) => {
 });
 
 
-//defualt page displaying hello world
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+
 //returns the name given in the url
 app.get('/hello/:name', (req, res) => {
     console.log(req.params.name);
@@ -80,11 +83,6 @@ app.get('/api/books/:id', async (req, res) => {
 //returns file index.html 
 app.get('/test', (req, res) => {
     res.sendFile(__dirname + '/index.html');
-})
-
-//lists value of port in console 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
 })
 
 
@@ -122,4 +120,14 @@ app.post('/api/books', (req, res) => {
     console.log(req.body);
     res.send("Data recieved and stored");
 });
+
+//returns index.html file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
+});
+
+//lists value of port in console 
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
 

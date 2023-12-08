@@ -23,7 +23,7 @@ function App() {
       <>
         <Navbar className='navbar'>
           <Container>
-            <Navbar.Brand >NavBarLab9</Navbar.Brand>
+            <Navbar.Brand >NavBarLab10</Navbar.Brand>
             <Nav className="me-auto">
               {/* href links to a defined route */}
               <Nav.Link href="/">Home</Nav.Link>
